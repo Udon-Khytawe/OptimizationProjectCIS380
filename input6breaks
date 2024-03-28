@@ -1,0 +1,8 @@
+break max_speed
+  condition $bpnum max_power == 1955
+break MaxSumMod.cpp:30
+  commands
+    print speed_mod
+    print speed
+    print accumulated_speed
+  end
