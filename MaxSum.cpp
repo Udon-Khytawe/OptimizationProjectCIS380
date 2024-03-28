@@ -7,7 +7,9 @@ int max_speed(const int max_power, const std::vector<int>& speeds){
 	std::vector<int> table(max_power+1, 0);
 
 	const int len = speeds.size();
+	//iterate over the table starting at first speed
 	for(int i = speeds[0]; i <= max_power; ++i){
+		//find the maximum value in the table looking back
 		int max = 0;
 		for(int j = 0; j < len && i >= speeds[j]; ++j){
 			int speed = speeds[j] + table[i-speeds[j]];
@@ -18,6 +20,7 @@ int max_speed(const int max_power, const std::vector<int>& speeds){
 		table[i] = max;
 	}
 
+	//return the final table element
 	return table[max_power];
 }
 

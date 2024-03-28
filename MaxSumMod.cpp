@@ -37,11 +37,14 @@ int max_speed(const int max_power, const std::vector<int>& speeds){
 	int len = speeds.size();
 	for(int i = 1; i < len; ++i){
 		int speed = speeds[i];
+		//if max_power is greater than product of speed and min_speed
 		if(max_power >= speed*min_speed){
+			//return speed because of mod stuff
 			return max_power;
 		}
 	}
 
+	//other wise need to do dp solution
 	return max_speed_dp(max_power, speeds);
 }
 
